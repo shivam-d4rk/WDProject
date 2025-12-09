@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How SmartPark Works - Technology & Architecture</title>
+    <meta name="description" content="Detailed explanation of the IoT sensors, network infrastructure, and cloud data processing that power the SmartPark system.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* How It Works specific internal styles for layout integrity */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .component-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            transition: border 0.3s;
+            border: 1px solid #ddd;
+        }
+        .component-card:hover {
+            border-color: var(--primary-color);
+        }
+        .component-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .architecture-diagram {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+        }
+        .step {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 25px;
+            border-right: 4px solid var(--primary-color);
+        }
+        .step h3 span {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SmartPark</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html" class="active">How It Works</a>
+                <a href="live-map.html">Live Map</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <h1>⚙️ The SmartPark System Architecture</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Our solution is a robust blend of **Internet of Things (IoT) hardware** and **Cloud-based Software-as-a-Service (SaaS)**, designed for maximum reliability and scalability.</p>
+        
+        <div class="architecture-diagram">
+            <h2 style="color: var(--background-dark); margin-bottom: 20px;">End-to-End Data Flow</h2>
+            
+            <p>The diagram illustrates the flow: **Sensor > Gateway > Cloud > User App/Dashboard**. This ensures data is processed and delivered in milliseconds.</p>
+        </div>
+
+        <hr>
+
+        <section style="margin-top: 40px;">
+            <h2 style="text-align: center; margin-bottom: 40px;">Core System Components</h2>
+            
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="component-icon">📡</div>
+                    <h3>Ground Sensors (IoT)</h3>
+                    <p>These are low-power, weather-proof magnetic and ultrasonic sensors embedded directly into the pavement. They detect the presence of a metal mass with high accuracy (over 99%).</p>
+                    <ul>
+                        <li>**Power:** Long-life battery (5+ years)</li>
+                        <li>**Data Rate:** Reports status change instantly</li>
+                    </ul>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-icon">📶</div>
+                    <h3>Network Gateways</h3>
+                    <p>Gateways collect data from hundreds of sensors wirelessly via **LoRaWAN** or **NB-IoT**, minimizing power consumption. They act as the local hub before sending aggregated data to the cloud.</p>
+                    <ul>
+                        <li>**Range:** Up to 10 km (line of sight)</li>
+                        <li>**Security:** Encrypted data transmission</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon">☁️</div>
+                    <h3>Cloud Platform (AWS/Azure)</h3>
+                    <p>Our backend uses scalable cloud services for data processing, database management, and running the optimization algorithms. This handles millions of transactions daily.</p>
+                    <ul>
+                        <li>**Services:** Real-Time Data Streaming, AI Optimization</li>
+                        <li>**Uptime:** Guaranteed 99.99% SLA</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section style="margin-top: 40px;">
+            <h2 style="text-align: center; margin-bottom: 40px;">The Data Life Cycle: From Ground to Guide</h2>
+            
+            <div class="step">
+                <h3><span>1.</span> Trigger Event & Sensing Validation</h3>
+                <p>A vehicle pulls into a spot. The **ground sensor** detects the magnetic change. A secondary ultrasonic reading validates the vehicle's presence, preventing false positives from metal debris or shadows.</p>
+                <p style="font-style: italic;">Key Metric: False positive rate less than 0.1%.</p>
+            </div>
+            
+            <div class="step">
+                <h3><span>2.</span> Transmission & Aggregation</h3>
+                <p>The **IoT sensor** sends a tiny payload (e.g., "P5: Occupied") to the nearest **Gateway**. The Gateway buffers the data and transmits it securely via a high-speed cellular network (4G/5G) to the Cloud API endpoint.</p>
+                <p style="font-style: italic;">Technology Used: LoRaWAN (Long Range Wide Area Network).</p>
+            </div>
+            
+            <div class="step">
+                <h3><span>3.</span> Cloud Processing & API Update</h3>
+                <p>The **Cloud Platform** ingests the data, timestamps it, and runs it through a proprietary algorithm to filter potential noise. The validated status is written to the **Fast-Access Database** and instantly updates our public API.</p>
+                <p style="font-style: italic;">Benefit: Data is normalized and ready for consumption in under 500 milliseconds.</p>
+            </div>
+
+            <div class="step">
+                <h3><span>4.</span> User and Operator Visualization</h3>
+                <p>The **Live Map** page and the mobile application consume the public API data. Simultaneously, city operators view the data via the **Admin Dashboard** for performance monitoring and enforcement.</p>
+                <p style="font-style: italic;">Outputs: Enforcement alerts, occupancy trends, and real-time guidance.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="nav-container" style="display: block; text-align: center;">
+            <p style="margin-bottom: 10px;">&copy; 2025 SmartPark Solutions. Driving Smarter Cities.</p>
+            <small>Data Security Compliance | System Reliability Guarantee</small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* style.css - PROFESSIONAL REDESIGN with Booking System Styles */
+
+/* --- 1. Global Reset, Variables, and Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #004c99;    /* Deep Blue (Professional) */
+    --accent-color: #33cc66;     /* Bright Green (Availability/Success) */
+    --reserved-color: #3498db;   /* Professional Blue for Reserved */
+    --occupied-color: #e74c3c;   /* Red for occupied spots */
+    --background-dark: #2c3e50;  /* Dark Slate/Navy for Headers */
+    --background-light: #ecf0f1; /* Light Gray/Off-white */
+    --text-dark: #34495e;
+    --text-light: #f8f8f8;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--background-dark);}
+
+/* Links and Paragraphs */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #0056b3;
+}
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- 2. Navigation & Header --- */
+.navbar {
+    background-color: var(--background-dark);
+    padding: 1.2rem 0;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 25px;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 400;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- 3. Utility Classes & Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* --- 4. Buttons & Forms --- */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--background-dark);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 76, 153, 0.2);
+    outline: none;
+}
+
+/* --- 5. Footer --- */
+.footer {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+/* --- 6. Specific Components (Home Page) --- */
+
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #007bff 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 40px;
+    box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 5px solid var(--accent-color);
+}
+/* Tour/Testimonial styles are included inline in HTML, but can be extracted */
+
+/* --- 7. Live Map Page Styles (and Booking) --- */
+
+#parking-map {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+}
+.spot-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px; 
+    margin-top: 30px;
+}
+.parking-spot {
+    width: 80px; 
+    height: 100px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    transition: background-color 0.5s, transform 0.2s;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.parking-spot:hover {
+    transform: scale(1.05);
+}
+.available {
+    background-color: var(--accent-color);
+    border-color: darkgreen;
+    cursor: pointer;
+}
+.occupied {
+    background-color: var(--occupied-color);
+    border-color: darkred;
+    cursor: default;
+}
+.reserved {
+    background-color: var(--reserved-color); 
+    border-color: #2980b9;
+    cursor: default;
+}
+.spot-label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+.spot-status {
+    font-size: 0.8rem;
+}
+
+/* Booking Alert Bar */
+#booking-alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--accent-color); /* Initial Green */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    z-index: 2000;
+    display: none; 
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s;
+}
+
+/* --- 8. How It Works Page Styles --- */
+.step {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 25px;
+    border-right: 4px solid var(--primary-color);
+}
+/* ... rest of existing styles ... */

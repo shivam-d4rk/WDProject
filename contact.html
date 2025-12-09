@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact SmartPark Support and Sales</title>
+    <meta name="description" content="Reach out to the SmartPark team for technical support, sales inquiries, or partnership opportunities.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Page specific internal styles for layout integrity */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            border-top: 4px solid var(--accent-color);
+        }
+        .info-card h3 {
+            color: var(--background-dark);
+            margin-bottom: 10px;
+        }
+        .faq-section {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            margin-top: 40px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 15px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .faq-answer {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding-left: 15px;
+        }
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SmartPark</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="live-map.html">Live Map</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <h1>💬 Get in Touch with SmartPark</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">We're here to help! Use the form below for general inquiries, or use the specialized contact information for quick access to the right department.</p>
+        
+        <div class="contact-grid">
+            <div style="background-color: var(--background-light); padding: 30px; border-radius: 8px; box-shadow: var(--shadow-light);">
+                <h2 style="color: var(--text-dark); margin-top: 0;">Online Inquiry Form</h2>
+                <p>Please fill out the form, and a dedicated representative will contact you within 24 business hours.</p>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" name="email" required placeholder="name@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Inquiry Topic</label>
+                        <select id="topic" name="topic" required style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem; margin-bottom: 20px;">
+                            <option value="sales">New Sales/Partnership</option>
+                            <option value="support">Technical Support</option>
+                            <option value="billing">Billing/Invoicing</option>
+                            <option value="general">General Question</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Detailed Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Describe your inquiry..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit Inquiry</button>
+                </form>
+            </div>
+
+            <div class="contact-info-cards">
+                <h2 style="color: var(--primary-color); margin-top: 0;">Direct Department Contacts</h2>
+                
+                <div class="info-card">
+                    <h3>🤝 Sales & Partnerships</h3>
+                    <p>For city managers, property developers, and strategic inquiries.</p>
+                    <p><strong>Email:</strong> <a href="mailto:sales@smartpark.com">sales@smartpark.com</a></p>
+                    <p><strong>Phone:</strong> (555) 123-9000</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🛠️ Technical Support</h3>
+                    <p>For system outages, sensor malfunctions, or API questions.</p>
+                    <p><strong>Email:</strong> <a href="mailto:support@smartpark.com">support@smartpark.com</a></p>
+                    <p><strong>Phone:</strong> (555) 123-9001</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🏢 Corporate Office</h3>
+                    <p>General mail and administrative inquiries.</p>
+                    <p><strong>Address:</strong> 123 Smart City Ave, Tech Hub, ST 90210</p>
+                    <p><strong>Hours:</strong> Mon-Fri, 9am-5pm EST</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="faq-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions (FAQ)</h2>
+            
+            <div class="faq-item">
+                <span class="faq-question">Q: How often does the parking data refresh?</span>
+                <p class="faq-answer">A: Our system provides true real-time data. Status changes (Occupied/Available) are detected and updated on the Live Map via API within **500 milliseconds** of the event occurring at the sensor level.</p>
+            </div>
+            
+            <div class="faq-item">
+                <span class="faq-question">Q: What is the maintenance schedule for the ground sensors?</span>
+                <p class="faq-answer">A: The sensors are designed to be maintenance-free for 5+ years due to their low-power consumption. We perform over-the-air diagnostics daily, and physical checks are typically only required once every 2 years or upon battery life expiry.</p>
+            </div>
+            
+            <div class="faq-item">
+                <span class="faq-question">Q: Can the system integrate with existing city parking meters?</span>
+                <p class="faq-answer">A: Yes. Our cloud platform uses an open API structure and is designed to integrate seamlessly with most legacy payment systems and enforcement software via standard REST APIs or custom middleware solutions.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Q: Is the system secure from cyber threats?</span>
+                <p class="faq-answer">A: Data transmission from the sensor to the cloud is encrypted using industry-standard protocols (e.g., AES-128). Our cloud infrastructure adheres to SOC 2 Type II compliance standards for data integrity and security.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="nav-container" style="display: block; text-align: center;">
+            <p style="margin-bottom: 10px;">&copy; 2025 SmartPark Solutions. Driving Smarter Cities.</p>
+            <small>Find us on LinkedIn | Follow us on X/Twitter</small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

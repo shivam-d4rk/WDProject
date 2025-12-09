@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPark - The Future of Parking Management</title>
+    <meta name="description" content="SmartPark provides real-time, IoT-based smart parking solutions for urban centers and corporate campuses.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Home Page specific internal styles for layout integrity */
+        .tour-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-light);
+        }
+        .tour-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .tour-step:nth-child(even) {
+            flex-direction: row-reverse; 
+        }
+        .tour-text {
+            flex: 1;
+            padding: 0 40px;
+        }
+        .tour-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+            width: 150px;
+            text-align: center;
+        }
+        .client-section {
+            background-color: var(--background-light);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 6px;
+            box-shadow: var(--shadow-light);
+        }
+        .quote {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        .client-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .tour-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            .tour-step:nth-child(even) {
+                flex-direction: column;
+            }
+            .tour-icon {
+                margin-bottom: 20px;
+            }
+            .tour-text {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SmartPark</a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="live-map.html">Live Map</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Eliminate the Parking Hunt.</h1>
+            <p>SmartPark leverages **cutting-edge IoT and AI** to guide drivers instantly to available spots, reducing traffic, stress, and emissions in urban areas. **Find your spot in under 30 seconds.**</p>
+            <a href="live-map.html" class="btn-primary" style="margin-right: 15px;">View Live Map</a>
+            <a href="contact.html" class="btn-primary" style="background-color: white; color: var(--primary-color);">Partner With Us</a>
+        </section>
+
+        <section class="container section-padding">
+            <h2 style="text-align: center; margin-bottom: 40px;">Why Choose SmartPark?</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>⚡ Real-Time Accuracy</h3>
+                    <p>Our magnetic sensors provide **99.9% accurate** occupancy data, ensuring you never drive to a spot that is already taken. Data latency is less than 500ms.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>♻️ Eco-Friendly Cities</h3>
+                    <p>By drastically cutting down the average search time (cruising), we help cities **reduce CO2 emissions** and fuel waste by an estimated 25%.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Secure Mobile Payment</h3>
+                    <p>Integrated payment gateway allows for quick, secure transactions directly from your device. Supports major credit cards and digital wallets.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📈 Data Optimization</h3>
+                    <p>For city managers, our comprehensive dashboard offers insights into peak usage, pricing strategy, and infrastructure planning with actionable reports.</p>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section class="container section-padding tour-section">
+            <h2>The SmartPark Experience: A Quick Tour</h2>
+            <p style="max-width: 800px; margin: 10px auto 50px;">See how seamless parking can be, from the moment you leave your driveway until you securely lock your car.</p>
+
+            <div class="tour-step">
+                <div class="tour-icon">1. 🗺️</div>
+                <div class="tour-text">
+                    <h3>Check Availability</h3>
+                    <p>Open the SmartPark app (or website) and instantly view a **geo-located map** showing all available parking zones and the number of open spots in each location.</p>
+                    <p>Use filters for accessibility, EV charging, and time limits.</p>
+                </div>
+            </div>
+
+            <div class="tour-step">
+                <div class="tour-icon">2. ➡️</div>
+                <div class="tour-text">
+                    <h3>Navigate and Reserve</h3>
+                    <p>Select your preferred spot, and the app integrates with your favorite navigation tool (like Google Maps or Waze) to provide **turn-by-turn directions** straight to the bay.</p>
+                    <p>You can optionally reserve a spot for 15 minutes to guarantee availability upon arrival.</p>
+                </div>
+            </div>
+
+            <div class="tour-step">
+                <div class="tour-icon">3. ✅</div>
+                <div class="tour-text">
+                    <h3>Arrive, Park, and Pay</h3>
+                    <p>The sensor confirms your arrival and parking session begins automatically. Extend your stay or complete payment directly within the app when you leave.</p>
+                    <p>Receive alerts if your reserved time is about to expire, eliminating parking fines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="client-section">
+            <h2>Trusted by Forward-Thinking Cities</h2>
+            
+            <div class="testimonial-grid container">
+                <div class="testimonial-card">
+                    <p class="quote">"Since implementing SmartPark, downtown traffic congestion has measurably decreased. The ROI on fine reduction alone is impressive."</p>
+                    <p class="client-name">- Mayor Jane Doe, Metropolis City Planning</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Our campus parking complaints dropped by 80%. Students and faculty appreciate the real-time guidance, especially during peak hours."</p>
+                    <p class="client-name">- Dr. A. Patel, Chief Facilities Officer, State University</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Installation was quick and non-disruptive. The analytics dashboard gave us insights we never had before into our garage utilization."</p>
+                    <p class="client-name">- Robert C., Director of Operations, Corporate Park</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--primary-color); padding: 50px 20px; text-align: center;">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Experience Stress-Free Parking?</h2>
+            <p style="color: white; font-size: 1.1rem; margin-bottom: 30px;">Stop cruising. Start booking. Your perfect spot is just a click away.</p>
+            <a href="live-map.html" class="btn-primary" style="background-color: var(--accent-color); color: var(--background-dark);">Book Your Spot Now</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="nav-container" style="display: block; text-align: center;">
+            <p style="margin-bottom: 10px;">&copy; 2025 SmartPark Solutions. Driving Smarter Cities.</p>
+            <small>Privacy Policy | Terms of Service | <a href="contact.html">Careers</a></small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Parking Availability Map & Booking</title>
+    <meta name="description" content="View real-time, dynamic parking availability for various SmartPark locations across the city.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Live Map specific internal styles for layout integrity */
+        .map-control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .map-control-panel select {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .capacity-tracker {
+            flex-grow: 1;
+            text-align: right;
+        }
+        .capacity-bar-container {
+            background-color: #ddd;
+            border-radius: 50px;
+            height: 25px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        #capacity-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent-color);
+            transition: width 0.6s ease-in-out, background-color 0.6s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .legend-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+        .reserved-legend {
+            background-color: var(--reserved-color); 
+        }
+        #parking-map {
+            padding: 40px 20px;
+        }
+        .spot-container {
+            gap: 8px; 
+            margin-top: 30px;
+        }
+        .parking-spot {
+            width: 80px; 
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SmartPark</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="live-map.html" class="active">Live Map</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <h1>📍 Real-Time Parking Availability & Booking</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 20px;">Utilize the map controls to select your desired location. **Click on a FREE spot to reserve it for 2 minutes.**</p>
+        
+        <div class="map-control-panel">
+            <div>
+                <label for="location-select" style="font-weight: 600;">Select Parking Zone:</label>
+                <select id="location-select">
+                    <option value="lot_a">P-Lot A: Downtown Core</option>
+                    <option value="lot_b">P-Lot B: Corporate Campus</option>
+                    <option value="lot_c">P-Lot C: Transit Station (Reserved)</option>
+                </select>
+            </div>
+            <div class="capacity-tracker">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text-dark);">Current Occupancy Status:</p>
+                <div class="capacity-bar-container">
+                    <div id="capacity-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="parking-map">
+            <h2 style="margin-top: 0; color: var(--background-dark);">Downtown Core | Availability: <span id="available-count" style="color: var(--accent-color);">12</span>/18</h2>
+            <p style="color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 20px;">Spots update dynamically based on real-time sensor data.</p>
+            
+            <div class="spot-container" id="spot-container-a">
+                </div>
+            
+            <div class="legend-details">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--accent-color);"></span> Available (FREE)
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--occupied-color);"></span> Occupied (BUSY)
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color reserved-legend"></span> Reserved (PENDING)
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #f1c40f;"></span> EV Charging Only
+                </div>
+            </div>
+        </div>
+
+        <section style="margin-top: 40px; padding: 30px; background-color: white; border-radius: 8px; box-shadow: var(--shadow-light);">
+            <h3 style="color: var(--primary-color);">Reservation Policy</h3>
+            <p>A reservation locks the spot for **2 minutes** (120 seconds). If the vehicle is not detected by the sensor within this time, the spot is automatically released back into the public pool to ensure fair access.</p>
+        </section>
+
+    </main>
+    
+    <div id="booking-alert" style="display: none;">
+        
+    </div>
+
+    <footer class="footer">
+        <div class="nav-container" style="display: block; text-align: center;">
+            <p style="margin-bottom: 10px;">&copy; 2025 SmartPark Solutions. Driving Smarter Cities.</p>
+            <small>Data Disclaimer: Availability is real-time but subject to immediate change.</small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
