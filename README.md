@@ -1,5 +1,5 @@
 ## Web Development Project
-made with ❤️ by Apurve Karanwal
+made with ❤️ by Shivam Sirohi
 
 ```bash
 git clone https://github.com/shivam-d4rk/WDProject.git
